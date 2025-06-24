@@ -9,17 +9,17 @@ import { Badge } from '@/components/ui/badge';
 const MainDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Mock data for previews
+  // Updated mock data for previews with fresh listings
   const latestCarpool = [
-    { id: 1, from: 'Downtown', to: 'Suburb East', seats: 2, time: '6:00 PM', driver: 'Sarah M.' },
-    { id: 2, from: 'Tech Park', to: 'City Center', seats: 1, time: '5:30 PM', driver: 'Mike R.' },
-    { id: 3, from: 'Office', to: 'North Side', seats: 3, time: '6:15 PM', driver: 'Alex K.' }
+    { id: 1, from: 'UBS Kharadi Office', to: 'Koregaon Park', seats: 2, time: '6:00 PM', driver: 'Priya S.' },
+    { id: 2, from: 'UBS Kharadi Office', to: 'Baner', seats: 1, time: '5:30 PM', driver: 'Rahul P.' },
+    { id: 3, from: 'UBS Kharadi Office', to: 'Wakad', seats: 3, time: '6:15 PM', driver: 'Sneha K.' }
   ];
 
   const topMarketplace = [
-    { id: 1, title: 'iPhone 13 Pro', price: '$800', category: 'Electronics', seller: 'John D.' },
-    { id: 2, title: 'Office Chair - Ergonomic', price: '$150', category: 'Furniture', seller: 'Lisa P.' },
-    { id: 3, title: 'Parking Spot - Downtown', price: '$200/month', category: 'Parking', seller: 'Tom W.' }
+    { id: 1, title: 'MacBook Air M1', price: '₹75,000', category: 'Electronics', seller: 'Neha P.' },
+    { id: 2, title: 'Herman Miller Chair', price: '₹12,000', category: 'Furniture', seller: 'Arjun D.' },
+    { id: 3, title: 'Kharadi Parking Spot', price: '₹2,500/month', category: 'Parking', seller: 'Amit S.' }
   ];
 
   return (
