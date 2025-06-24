@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Plus, Search, Filter, Heart, MapPin, Clock, Tag } from 'lucide-react';
@@ -16,9 +15,9 @@ const MarketplacePage = () => {
     {
       id: 1,
       title: 'iPhone 13 Pro - Excellent Condition',
-      price: '$800',
+      price: '₹65,000',
       category: 'Electronics',
-      seller: 'John Doe',
+      seller: 'Rajesh Kumar',
       location: 'Building A, Floor 3',
       postedTime: '2 hours ago',
       image: '/placeholder.svg',
@@ -28,9 +27,9 @@ const MarketplacePage = () => {
     {
       id: 2,
       title: 'Herman Miller Office Chair',
-      price: '$150',
+      price: '₹12,000',
       category: 'Furniture',
-      seller: 'Lisa Park',
+      seller: 'Priya Singh',
       location: 'Building B, Floor 1',
       postedTime: '5 hours ago',
       image: '/placeholder.svg',
@@ -39,11 +38,11 @@ const MarketplacePage = () => {
     },
     {
       id: 3,
-      title: 'Downtown Parking Spot',
-      price: '$200/month',
+      title: 'Kharadi Parking Spot',
+      price: '₹2,500/month',
       category: 'Parking',
-      seller: 'Tom Wilson',
-      location: 'Downtown Garage',
+      seller: 'Amit Sharma',
+      location: 'UBS Kharadi Parking',
       postedTime: '1 day ago',
       image: '/placeholder.svg',
       description: 'Covered parking spot available for rent. Very close to office.',
@@ -52,9 +51,9 @@ const MarketplacePage = () => {
     {
       id: 4,
       title: 'MacBook Air M1',
-      price: '$900',
+      price: '₹75,000',
       category: 'Electronics',
-      seller: 'Sarah Miller',
+      seller: 'Neha Patil',
       location: 'Building C, Floor 2',
       postedTime: '3 hours ago',
       image: '/placeholder.svg',
@@ -64,9 +63,9 @@ const MarketplacePage = () => {
     {
       id: 5,
       title: 'Standing Desk Converter',
-      price: '$75',
+      price: '₹6,000',
       category: 'Furniture',
-      seller: 'Mike Rodriguez',
+      seller: 'Arjun Deshmukh',
       location: 'Building A, Floor 1',
       postedTime: '6 hours ago',
       image: '/placeholder.svg',
@@ -75,14 +74,14 @@ const MarketplacePage = () => {
     },
     {
       id: 6,
-      title: 'Monthly Bus Pass',
-      price: '$50',
+      title: 'PMPML Monthly Pass',
+      price: '₹450',
       category: 'Transportation',
-      seller: 'Emma Chen',
+      seller: 'Sneha Joshi',
       location: 'Building B, Floor 4',
       postedTime: '4 hours ago',
       image: '/placeholder.svg',
-      description: 'Unused monthly bus pass for city transit. Valid till end of month.',
+      description: 'Unused monthly bus pass for Pune city transit. Valid till end of month.',
       likes: 4
     }
   ];

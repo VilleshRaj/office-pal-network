@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Send, Bot, User, MapPin, Newspaper, Heart, Coffee, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Send, Bot, User, Users, Calendar, Coffee, FileText, Lightbulb } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,7 +12,7 @@ const ChatPage = () => {
     {
       id: 1,
       type: 'bot',
-      content: "Hi there! I'm your workplace AI assistant. I can help you with directions, local news, health tips, restaurant recommendations, and much more. What would you like to know?",
+      content: "Hi there! I'm your Employee Assistant. I can help you with HR policies, leave applications, team information, office facilities, and much more. What would you like to know about today?",
       timestamp: new Date().toLocaleTimeString()
     }
   ]);
@@ -28,11 +28,11 @@ const ChatPage = () => {
   }, [messages]);
 
   const quickActions = [
-    { icon: MapPin, text: 'Find nearby gas stations', category: 'location' },
-    { icon: Newspaper, text: 'Today\'s local news', category: 'news' },
-    { icon: Heart, text: 'Find nearby clinics', category: 'health' },
-    { icon: Coffee, text: 'Best coffee shops nearby', category: 'food' },
-    { icon: Lightbulb, text: 'Productivity tips', category: 'tips' }
+    { icon: Users, text: 'Find team contact info', category: 'team' },
+    { icon: Calendar, text: 'Check leave balance', category: 'leave' },
+    { icon: Coffee, text: 'Office cafeteria menu', category: 'facilities' },
+    { icon: FileText, text: 'HR policies', category: 'hr' },
+    { icon: Lightbulb, text: 'Employee benefits', category: 'benefits' }
   ];
 
   const handleSendMessage = () => {
@@ -65,27 +65,27 @@ const ChatPage = () => {
   const generateAIResponse = (userInput) => {
     const input = userInput.toLowerCase();
     
-    if (input.includes('gas') || input.includes('fuel')) {
-      return "I found 3 gas stations within 2 miles of your office:\n\n🚗 Shell Station - 0.5 miles (Current price: $3.45/gal)\n🚗 BP Gas - 1.2 miles (Current price: $3.42/gal)\n🚗 Chevron - 1.8 miles (Current price: $3.48/gal)\n\nWould you like directions to any of these?";
+    if (input.includes('team') || input.includes('contact') || input.includes('colleague')) {
+      return "Here are your team contacts:\n\n👥 Development Team:\n• Rahul Sharma (Tech Lead) - rahul.sharma@company.com\n• Priya Gupta (Senior Dev) - priya.gupta@company.com\n• Arjun Patil (QA) - arjun.patil@company.com\n\n👥 HR Team:\n• Sneha Joshi (HR Manager) - sneha.joshi@company.com\n• Amit Kumar (Recruiter) - amit.kumar@company.com\n\nNeed specific contact details for someone else?";
     }
     
-    if (input.includes('news') || input.includes('today')) {
-      return "Here are today's top local headlines:\n\n📰 New bike lanes opened on Main Street\n📰 Local tech company announces 200 new jobs\n📰 Weekend farmers market returns to downtown\n📰 Traffic advisory: Construction on Highway 101\n\nWould you like details on any of these stories?";
+    if (input.includes('leave') || input.includes('vacation') || input.includes('holiday')) {
+      return "📅 Your Leave Information:\n\n• Available Casual Leaves: 8 days\n• Available Sick Leaves: 6 days\n• Earned Leaves: 12 days\n• Next company holiday: Diwali (Nov 12-13)\n\nTo apply for leave, use the HR portal or email your manager. Would you like help with the leave application process?";
     }
     
-    if (input.includes('clinic') || input.includes('doctor') || input.includes('health')) {
-      return "Here are nearby medical facilities:\n\n🏥 City Medical Center - 0.8 miles (Emergency & Urgent Care)\n🏥 QuickCare Clinic - 1.5 miles (Walk-ins welcome)\n🏥 Family Health Practice - 2.1 miles (Appointments available)\n\nFor emergencies, call 911. Would you like contact information for any of these?";
+    if (input.includes('cafeteria') || input.includes('food') || input.includes('menu') || input.includes('lunch')) {
+      return "🍽️ Today's Cafeteria Menu:\n\n**Lunch (12:00 PM - 2:00 PM):**\n• North Indian: Dal Tadka, Roti, Rice, Veg Curry\n• South Indian: Sambar Rice, Rasam, Curd\n• Continental: Pasta, Garlic Bread, Salad\n• Snacks: Samosa, Tea, Coffee available all day\n\n**Timings:**\n• Breakfast: 8:30-10:00 AM\n• Lunch: 12:00-2:00 PM\n• Evening Snacks: 4:00-6:00 PM";
     }
     
-    if (input.includes('coffee') || input.includes('restaurant') || input.includes('food')) {
-      return "Great coffee spots near you:\n\n☕ The Daily Grind - 0.3 miles (4.8★ - Famous espresso)\n☕ Coffee Bean Central - 0.7 miles (4.6★ - Great pastries)\n☕ Artisan Roasters - 1.1 miles (4.9★ - Local favorite)\n\nWould you like to see lunch options too?";
+    if (input.includes('hr') || input.includes('policy') || input.includes('policies')) {
+      return "📋 HR Policies & Guidelines:\n\n• Working Hours: 9:30 AM - 6:30 PM (Monday-Friday)\n• Dress Code: Business casual, formal on client meeting days\n• Remote Work: Up to 2 days per week with manager approval\n• Probation Period: 6 months for new joiners\n• Annual Appraisal: March-April\n\nFor detailed policy documents, check the HR portal or contact Sneha Joshi. Any specific policy questions?";
     }
     
-    if (input.includes('tip') || input.includes('productive')) {
-      return "Here are some productivity tips for your workday:\n\n💡 Try the Pomodoro Technique: 25 min work, 5 min break\n💡 Take a 2-minute walk every hour to boost focus\n💡 Use the 2-minute rule: If it takes less than 2 min, do it now\n💡 Block time for deep work without notifications\n\nWould you like more specific tips for any area?";
+    if (input.includes('benefit') || input.includes('insurance') || input.includes('medical') || input.includes('pf')) {
+      return "💼 Employee Benefits:\n\n• Health Insurance: Family coverage up to ₹5 lakhs\n• Life Insurance: 4x annual salary coverage\n• Provident Fund: 12% employer contribution\n• Gratuity: After 5 years of service\n• Performance Bonus: Annual based on company performance\n• Learning & Development: ₹25,000 annual budget\n• Gym Membership: 50% reimbursement\n\nNeed details about any specific benefit?";
     }
     
-    return "I'd be happy to help! I can assist with:\n\n• Finding nearby places (gas, food, medical)\n• Local news and weather updates\n• Health and wellness tips\n• Directions and transportation\n• General workplace questions\n\nWhat specific information are you looking for?";
+    return "I'd be happy to help with employee-related queries! I can assist with:\n\n• 👥 Team contacts and org chart\n• 📅 Leave policies and balance\n• 🏢 Office facilities and services\n• 📋 HR policies and procedures\n• 💼 Employee benefits and perks\n• 🎯 Performance reviews and career growth\n• 🔧 IT support and equipment requests\n\nWhat specific information do you need?";
   };
 
   const handleQuickAction = (action) => {
@@ -107,8 +107,8 @@ const ChatPage = () => {
                 </Button>
               </Link>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">AI Assistant</h1>
-                <p className="text-gray-600">Your intelligent workplace companion</p>
+                <h1 className="text-3xl font-bold text-gray-900">Employee Assistant</h1>
+                <p className="text-gray-600">Your workplace companion for all employee needs</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -148,8 +148,8 @@ const ChatPage = () => {
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg">AI Assistant</CardTitle>
-                <p className="text-sm text-gray-600">Always here to help</p>
+                <CardTitle className="text-lg">Employee Assistant</CardTitle>
+                <p className="text-sm text-gray-600">Always here to help with workplace queries</p>
               </div>
             </div>
           </CardHeader>
@@ -197,7 +197,7 @@ const ChatPage = () => {
           <div className="border-t p-4">
             <div className="flex space-x-2">
               <Input
-                placeholder="Ask me anything..."
+                placeholder="Ask about HR policies, team info, benefits..."
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
@@ -220,24 +220,24 @@ const ChatPage = () => {
             <h3 className="font-semibold mb-3">What I can help you with:</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center">
-                <MapPin className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Locations</p>
-                <p className="text-xs text-gray-600">Find nearby places</p>
+                <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                <p className="text-sm font-medium">Team Info</p>
+                <p className="text-xs text-gray-600">Contacts & org chart</p>
               </div>
               <div className="text-center">
-                <Newspaper className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">News</p>
-                <p className="text-xs text-gray-600">Latest updates</p>
+                <Calendar className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                <p className="text-sm font-medium">Leave</p>
+                <p className="text-xs text-gray-600">Balance & policies</p>
               </div>
               <div className="text-center">
-                <Heart className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Health</p>
-                <p className="text-xs text-gray-600">Medical assistance</p>
+                <FileText className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                <p className="text-sm font-medium">HR Policies</p>
+                <p className="text-xs text-gray-600">Guidelines & procedures</p>
               </div>
               <div className="text-center">
                 <Lightbulb className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Tips</p>
-                <p className="text-xs text-gray-600">Productivity advice</p>
+                <p className="text-sm font-medium">Benefits</p>
+                <p className="text-xs text-gray-600">Perks & insurance</p>
               </div>
             </div>
           </CardContent>
