@@ -1,15 +1,17 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Car, MessageCircle, Plus, MapPin, Users, Clock, TrendingUp } from 'lucide-react';
+import { ShoppingBag, Car, MessageCircle, MapPin, Users, Clock, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import PostItemDialog from './PostItemDialog';
+import OfferRideDialog from './OfferRideDialog';
 
 const MainDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Updated mock data for previews with fresh listings
+  // Updated mock data for previews with fresh listings - removed pricing from carpooling
   const latestCarpool = [
     { id: 1, from: 'UBS Kharadi Office', to: 'Koregaon Park', seats: 2, time: '6:00 PM', driver: 'Priya S.' },
     { id: 2, from: 'UBS Kharadi Office', to: 'Baner', seats: 1, time: '5:30 PM', driver: 'Rahul P.' },
@@ -33,14 +35,8 @@ const MainDashboard = () => {
               <p className="text-gray-600 mt-1">Your workplace community hub</p>
             </div>
             <div className="flex space-x-3">
-              <Button variant="outline" className="flex items-center space-x-2">
-                <Plus className="w-4 h-4" />
-                <span>Post Item</span>
-              </Button>
-              <Button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700">
-                <Car className="w-4 h-4" />
-                <span>Offer Ride</span>
-              </Button>
+              <PostItemDialog />
+              <OfferRideDialog />
             </div>
           </div>
         </div>

@@ -1,11 +1,13 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Plus, Search, MapPin, Clock, Users, Star, Car, Navigation } from 'lucide-react';
+import { ArrowLeft, Search, MapPin, Clock, Users, Star, Car, Navigation } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import OfferRideDialog from './OfferRideDialog';
 
 const CarpoolingPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +25,6 @@ const CarpoolingPage = () => {
       totalSeats: 4,
       estimatedDuration: '25 mins',
       route: 'Via Nagar Road',
-      pricePerSeat: '₹80',
       carModel: 'Maruti Swift',
       preferences: ['No Smoking', 'Music OK'],
       postedTime: '1 hour ago'
@@ -39,7 +40,6 @@ const CarpoolingPage = () => {
       totalSeats: 4,
       estimatedDuration: '35 mins',
       route: 'Via Aundh',
-      pricePerSeat: '₹120',
       carModel: 'Honda City',
       preferences: ['No Smoking', 'Quiet Ride'],
       postedTime: '30 mins ago'
@@ -53,7 +53,6 @@ const CarpoolingPage = () => {
       departureTime: '6:15 PM',
       availableSeats: 3,
       totalSeats: 5,
-      pricePerSeat: '₹100',
       estimatedDuration: '40 mins',
       route: 'Via Hinjewadi Road',
       carModel: 'Hyundai Creta',
@@ -71,7 +70,6 @@ const CarpoolingPage = () => {
       totalSeats: 4,
       estimatedDuration: '15 mins',
       route: 'Via Airport Road',
-      pricePerSeat: '₹60',
       carModel: 'Tata Nexon EV',
       preferences: ['No Smoking', 'Eco-Friendly'],
       postedTime: '45 mins ago'
@@ -106,10 +104,7 @@ const CarpoolingPage = () => {
                 <p className="text-gray-600">Share rides, save money, help the environment</p>
               </div>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <Plus className="w-4 h-4 mr-2" />
-              Offer a Ride
-            </Button>
+            <OfferRideDialog />
           </div>
 
           {/* Search and Filters */}
@@ -227,15 +222,11 @@ const CarpoolingPage = () => {
                       <p className="text-sm text-gray-600">{ride.estimatedDuration}</p>
                     </div>
                     
-                    <div className="flex items-center justify-center lg:justify-end space-x-2 mb-2">
+                    <div className="flex items-center justify-center lg:justify-end space-x-2 mb-3">
                       <Users className="w-4 h-4 text-gray-600" />
                       <span className="text-sm">
                         {ride.availableSeats}/{ride.totalSeats} available
                       </span>
-                    </div>
-                    
-                    <div className="text-xl font-bold text-blue-600 mb-3">
-                      {ride.pricePerSeat}
                     </div>
                     
                     <div className="flex space-x-2">
@@ -262,10 +253,7 @@ const CarpoolingPage = () => {
               <p className="text-gray-500 mb-4">
                 Try adjusting your search or check back later for new rides.
               </p>
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                <Plus className="w-4 h-4 mr-2" />
-                Offer a Ride
-              </Button>
+              <OfferRideDialog />
             </div>
           </div>
         )}

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Plus, Search, Filter, Heart, MapPin, Clock, Tag } from 'lucide-react';
+import { ArrowLeft, Search, Filter, Heart, MapPin, Clock, Tag } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import PostItemDialog from './PostItemDialog';
 
 const MarketplacePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -113,10 +114,7 @@ const MarketplacePage = () => {
                 <p className="text-gray-600">Buy, sell, and rent with your colleagues</p>
               </div>
             </div>
-            <Button className="bg-green-600 hover:bg-green-700">
-              <Plus className="w-4 h-4 mr-2" />
-              Post New Item
-            </Button>
+            <PostItemDialog />
           </div>
 
           {/* Search and Filters */}
@@ -222,10 +220,7 @@ const MarketplacePage = () => {
               <p className="text-gray-500 mb-4">
                 Try adjusting your search terms or browse all categories.
               </p>
-              <Button className="bg-green-600 hover:bg-green-700">
-                <Plus className="w-4 h-4 mr-2" />
-                Post the First Item
-              </Button>
+              <PostItemDialog />
             </div>
           </div>
         )}
